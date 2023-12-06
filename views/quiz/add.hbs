@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+{{! create a form to send data back to the server }}
+<form  method="post">
+  {{! add form fields }}
+  <fieldset>
+    <label for="name" class="col-2">Name: </label>
+    <input name="name" id="name" required />
+  </fieldset>
+  <fieldset>
+    <label for="duedate" class="col-2">Due Date: </label>
+    <input name="duedate" id="duedate" required type="date"/>
+  </fieldset>
+  <fieldset>
+    <label for="courses" class="col-2">
+      Course: 
+    </label>
+    <select name="course" id="course">
+      {{#each courses}}
+      <option>{{this.name}}</option>
+      {{/each}}
+    </select>
+    {{!-- <input name="course" id="course" required /> --}}
+  </fieldset>
+
+  {{! add button }}
+  <button class="offset-3 btn btn-primary" type="submit">Save</button>
+</form>

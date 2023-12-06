@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+{{!-- ADD LINKS TO ADD --}}
+<a href="/quiz/add">Add a new Question</a>
+{{!-- ADD TABLE TO SHOW DATA --}}
+{{!-- EACH RECORD WILL HAVE AN ACTION --}}
+<table class="table table-striped table-hover">
+    <thead>
+<th>Name</th>
+<th>DueDate</th>
+<th>Course</th>
+<th>Status</th>
+<th></th>
+    </thead>
+    <tbody>
+        {{!-- Show the element  --}}
+        {{#each dataset}}
+<tr>
+    <td>{{this.name}}</td>
+    <td>{{this.duedate}}</td>
+    <td>{{this.course}}</td>
+    <td>{{this.status}}</td>
+    <td>
+        <a href="/quiz/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a href="/quiz/delete/{{this._id}}" class="btn btn-danger" onclick="confirmDeletion()">Delete</a>
+    </td>
+</tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,37 @@
+<h1>{{title}}</h1>
+{{! create a form to send data back to the server }}
+<form method="post">
+  {{! add form fields }}
+  <fieldset>
+    <label for="name" class="col-2">Name: </label>
+    <input name="name" id="name" required value="{{quizzes.name}}" />
+  </fieldset>
+  <fieldset>
+    <label for="duedate" class="col-2">Due Date: </label>
+    <input name="duedate" id="duedate" required type="date" value="{{toShortDate quizzes.duedate}}"/>
+  </fieldset>
+  <fieldset>
+    <label for="courses" class="col-2">
+      Course:
+    </label>
+    <select name="course" id="course">
+      {{#each courses}}
+        {{createOption this.name ../quizzes.course}}
+      {{/each}}
+    </select>
+    {{! <input name="course" id="course" required /> }}
+  </fieldset>
+  <fieldset>
+    <label for="status" class="col-2">
+      Status:
+    </label>
+    <select name="status" ,id="status">
+      {{createOption 'To do' quizzes.status}}
+      {{createOption 'In Progres' quizzes.status}}
+      {{createOption 'Done' quizzes.status}}
+    </select>
+
+  </fieldset>
+  {{! add button }}
+  <button class="offset-3 btn btn-primary" type="submit">Save</button>
+</form>
